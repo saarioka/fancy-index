@@ -10,6 +10,12 @@ AddEncoding gzip svgz
  deny from all
 </Files>
 
+# Render these as text on website
+<FilesMatch "\.(?i:log|py|sh|csv)$">
+  ForceType text/plain
+  Header set Content-Type "text/plain"
+</FilesMatch>
+
 # DIRECTORY CUSTOMIZATION
 <IfModule mod_autoindex.c>
 
